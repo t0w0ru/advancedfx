@@ -172,6 +172,15 @@
     <Filter Include="prop\AfxHookSource\insurgency2\public">
       <UniqueIdentifier>{9f8a63b3-6460-48bd-a750-91b2e9c2c410}</UniqueIdentifier>
     </Filter>
+    <Filter Include="shared\csgo-demoinfo">
+      <UniqueIdentifier>{7617a7d5-d3e2-4552-9318-fcce4daedf4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shared\csgo-demoinfo\demoinfogo">
+      <UniqueIdentifier>{c8d7f531-900c-4cb6-aeb4-23eb4209d4e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shared\csgo-demoinfo\demoinfogo\generated_proto">
+      <UniqueIdentifier>{9f540030-cf1c-4e83-80b1-f1f518c36640}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\shared\bvhexport.cpp">
@@ -434,6 +443,15 @@
     </ClCompile>
     <ClCompile Include="AfxCommandLine.cpp">
       <Filter>AfxHookSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\prop\AfxHookSource\csgo_CDemoFile.cpp">
+      <Filter>prop\AfxHookSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\csgo-demoinfo\demoinfogo\generated_proto\netmessages_public.pb.cc">
+      <Filter>shared\csgo-demoinfo\demoinfogo\generated_proto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\csgo-demoinfo\demoinfogo\demofilebitbuf.cpp">
+      <Filter>shared\csgo-demoinfo\demoinfogo</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -808,6 +826,18 @@
     </ClInclude>
     <ClInclude Include="AfxCommandLine.h">
       <Filter>AfxHookSource</Filter>
+    </ClInclude>
+    <ClInclude Include="..\prop\AfxHookSource\csgo_CDemoFile.h">
+      <Filter>prop\AfxHookSource</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\csgo-demoinfo\demoinfogo\generated_proto\netmessages_public.pb.h">
+      <Filter>shared\csgo-demoinfo\demoinfogo\generated_proto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\csgo-demoinfo\demoinfogo\demofile.h">
+      <Filter>shared\csgo-demoinfo\demoinfogo</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\csgo-demoinfo\demoinfogo\demofilebitbuf.h">
+      <Filter>shared\csgo-demoinfo\demoinfogo</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
