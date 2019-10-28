@@ -95,6 +95,8 @@ AFXADDR_DECL(csgo_CDemoPlayer_InternalStartPlayback)
 AFXADDR_DECL(csgo_WriteDeltaEntities)
 AFXADDR_DECL(csgo_NET_CreateNetChannel)
 AFXADDR_DECL(csgo_CBaseServer_GetFreeCLient)
+AFXADDR_DECL(csgo_CFrameSnapshotManager_TakeTickSnapshot)
+AFXADDR_DECL(csgo_CFrameSnapshotManager_DeleteFrameSnapshot)
 
 void Addresses_InitEngineDll(AfxAddr engineDll, SourceSdkVer sourceSdkVer);
 void Addresses_InitPanoramaDll(AfxAddr panoramaDll, SourceSdkVer sourceSdkVer);

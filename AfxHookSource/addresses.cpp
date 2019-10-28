@@ -87,6 +87,8 @@ AFXADDR_DEF(csgo_CDemoPlayer_InternalStartPlayback)
 AFXADDR_DEF(csgo_WriteDeltaEntities)
 AFXADDR_DEF(csgo_NET_CreateNetChannel)
 AFXADDR_DEF(csgo_CBaseServer_GetFreeCLient);
+AFXADDR_DEF(csgo_CFrameSnapshotManager_TakeTickSnapshot)
+AFXADDR_DEF(csgo_CFrameSnapshotManager_DeleteFrameSnapshot)
 
 void ErrorBox(char const * messageText);
 
@@ -826,6 +828,50 @@ void Addresses_InitEngineDll(AfxAddr engineDll, SourceSdkVer sourceSdkVer)
 
 			AFXADDR_SET(csgo_CBaseServer_GetFreeCLient, addr);
 		}
+
+		// csgo_CFrameSnapshotManager_TakeTickSnapshot // Checked: 2019-10-14.
+		{
+			DWORD addr = 0;
+
+			ImageSectionsReader sections((HMODULE)engineDll);
+			if (!sections.Eof())
+			{
+				MemRange textRange = sections.GetMemRange();
+
+				MemRange result = FindPatternString(textRange, "55 8B EC B8 0C 10 00 00 E8 ?? ?? ?? ?? 53 56 57 6A 00 FF 35 ?? ?? ?? ?? FF 75 08 E8 ?? ?? ?? ??");
+
+				if (!result.IsEmpty())
+				{
+					addr = result.Start;
+				}
+				else ErrorBox(MkErrStr(__FILE__, __LINE__));
+			}
+			else ErrorBox(MkErrStr(__FILE__, __LINE__));
+
+			AFXADDR_SET(csgo_CFrameSnapshotManager_TakeTickSnapshot, addr);
+		}
+
+		// csgo_CFrameSnapshotManager_DeleteFrameSnapshot // Checked: 2019-10-14.
+		{
+			DWORD addr = 0;
+
+			ImageSectionsReader sections((HMODULE)engineDll);
+			if (!sections.Eof())
+			{
+				MemRange textRange = sections.GetMemRange();
+
+				MemRange result = FindPatternString(textRange, "55 8B EC 53 8B 5D 08 56 33 F6 39 73 08 7E 1E 57 33 FF");
+
+				if (!result.IsEmpty())
+				{
+					addr = result.Start;
+				}
+				else ErrorBox(MkErrStr(__FILE__, __LINE__));
+			}
+			else ErrorBox(MkErrStr(__FILE__, __LINE__));
+
+			AFXADDR_SET(csgo_CFrameSnapshotManager_DeleteFrameSnapshot, addr);
+		}
 	}
 	else
 	{
@@ -852,6 +898,8 @@ void Addresses_InitEngineDll(AfxAddr engineDll, SourceSdkVer sourceSdkVer)
 		AFXADDR_SET(csgo_WriteDeltaEntities, 0x0);
 		AFXADDR_SET(csgo_NET_CreateNetChannel, 0x0);
 		AFXADDR_SET(csgo_CBaseServer_GetFreeCLient, 0x0);
+		AFXADDR_SET(csgo_CFrameSnapshotManager_TakeTickSnapshot, 0x0);
+		AFXADDR_SET(csgo_CFrameSnapshotManager_DeleteFrameSnapshot, 0x0);
 	}
 	AFXADDR_SET(csgo_snd_mix_timescale_patch_DSZ, 0x08);
 	AFXADDR_SET(csgo_MIX_PaintChannels_DSZ, 0x9);
