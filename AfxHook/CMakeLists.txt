@@ -30,7 +30,7 @@ set(AFXHOOK_BINARIES
 )
 
 add_custom_command(
-	OUTPUT AFXHOOK_BINARIES
+	OUTPUT ${AFXHOOK_BINARIES}
 	COMMAND ${nasm_SOURCE_DIR}/nasm.exe  -f bin -o ${CMAKE_CURRENT_BINARY_DIR}/AfxHook_586.dat ${CMAKE_CURRENT_SOURCE_DIR}/AfxHook_586.asm
 	COMMAND ${nasm_SOURCE_DIR}/nasm.exe  -f bin -o ${CMAKE_CURRENT_BINARY_DIR}/AfxHook_x64.dat ${CMAKE_CURRENT_SOURCE_DIR}/AfxHook_x64.asm
 	WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
@@ -38,5 +38,5 @@ add_custom_command(
 )
 
 add_custom_target(afxhook
-	DEPENDS AFXHOOK_BINARIES
+	DEPENDS ${AFXHOOK_BINARIES}
 )
