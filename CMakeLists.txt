@@ -28,9 +28,9 @@ execute_process(
 include(FetchContent)
 
 add_subdirectory("AfxHook")
-add_subdirectory("deps/Release/zlib")
-add_subdirectory("deps/Release/OPENEXR")
-add_subdirectory("AfxHookSOurce")
+add_subdirectory("deps/release/zlib")
+add_subdirectory("deps/release/openexr")
+add_subdirectory("AfxHookSource")
 
 
 #
